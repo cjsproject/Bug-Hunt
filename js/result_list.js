@@ -107,5 +107,10 @@ function addRelatedImagesSites(json)
 		links[i] = images[j].hostPageDisplayUrl;
 	}
 
-	return links[i]
+	var request = $.ajax({
+	  url: "", //this is the server address
+	  method: "POST",
+	  data: { id : links },
+	  dataType: "application/json"
+});
 }
