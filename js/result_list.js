@@ -110,7 +110,7 @@ function addRelatedImagesSites(json)
 	var request = $.ajax({
 	  url: "inspectinsect.net", //this is the server address
 	  method: "POST",
-	  data: { id : links },
+	  data: { 'id' : links },
 	  dataType: "application/json"
 });
 }
