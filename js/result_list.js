@@ -108,7 +108,7 @@ function addRelatedImagesSites(json)
 	}
 
 	var request = $.ajax({
-	  url: "", //this is the server address
+	  url: "inspectinsect.net", //this is the server address
 	  method: "POST",
 	  data: { id : links },
 	  dataType: "application/json"
