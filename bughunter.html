@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8">
+	<meta name = "viewport" content = "width=device-width, intital-scale=1">
+
+	 <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<script src="js/scrubs.js"></script> 
+
+	<link rel="stylesheet" href="css/stylerthing.css">
+</head>
+<body>
+	<div class="topnav">
+ 		<a class="active" href="#home">Bug Hunt</a>
+ 		<a href="#about">About</a>
+  		<a href="#contact">Contact</a>
+	</div>
+
+	<div class="fuckoff">
+		<p>Upload an image of your Insect!</p>
+	</div>
+
+	<div class="uli" id="drop-area">
+		<input id="trash" type='file' multiple accpe="image/*"  name="files[]" size=40 onchange="readURL(this), handleFiles(this.files), handleFileSelect('uploadImage')"/>
+    	<img id="uploadedshit" class="img-responsive" src="#" alt=""/>
+    	<button class="searchbut" for="img">Search Image</button>
+    	<output id="Thumbnail"></output>
+	</div>
+</body>
+
+</html>
