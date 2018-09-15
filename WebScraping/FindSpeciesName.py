@@ -1,11 +1,17 @@
 import requests
+import json
 from bs4 import BeautifulSoup
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/pagelist')
+def ScrapPage():
+    pagelist = json.loads(request.args.get('list'))
+    return jsonify(result=wordlist)
 
 def FindOGTitle(soup):
     return soup.find('head').find('meta', {'property':'og:title'})
-
-def FindOGTitle():
-    asdf
 
 def PrintImagesMeta(images):
     for image in images:
