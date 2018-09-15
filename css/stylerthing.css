@@ -1,9 +1,6 @@
 body{
 	background-color: hsla(200, 50%, 75%, 0.75);
 }
-.fuckoff{
-	text-align: center;
-}
 /* Add a black background color to the top navigation bar */
 .topnav {
     overflow: hidden;
@@ -25,6 +22,7 @@ body{
 .topnav a:hover {
     background-color: hsla(90, 50%, 75%, 0.75);
     color: black;
+    border: 4px dashed blue;
 }
 
 /* Style the "active" element to highlight the current page */
@@ -48,6 +46,10 @@ body{
     .topnav input[type=text] {
         border: 1px solid #ccc;
     }
+}
+
+.uli p{
+    text-align: center;
 }
 
 #drop-area {
