@@ -11,6 +11,9 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+function handleFiles( x) {
+
+}
 
 function handleFileSelect(selector) {
             var files = document.getElementById(selector).files; // FileList object
@@ -45,10 +48,10 @@ function handleFileSelect(selector) {
                         }
 
                         // Render thumbnail.
-                        var span = document.createElement('span');
-                        span.innerHTML = ['<img class="thumb" src="', e.target.result,
-                                          '" title="', escape(theFile.name), '"/>'].join('');
-                        fileOutput.insertBefore(span, null);
+                        //var span = document.createElement('span');
+                        //span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                        //                  '" title="', escape(theFile.name), '"/>'].join('');
+                        //fileOutput.insertBefore(span, null);
                     };
                 })(f);
 

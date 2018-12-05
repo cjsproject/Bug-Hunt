@@ -1,7 +1,7 @@
 import requests
 import json
 from bs4 import BeautifulSoup
-from flask import flask
+from flask import Flask
 from flask import request
 
 app = Flask(__name__)
@@ -10,6 +10,7 @@ class PageMetaData:
     def __init__(self):
         self.title = ""
         self.OGtitle = ""
+        self.count = 0
 
 def GetNames(metaData):
     metaData.title = metaData.title.split(string.punctuation)[0]
@@ -19,9 +20,9 @@ def ScrapMetaData(url):
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     metaData = PageMetaData()
-    if (soup.find('head').has_attr('title')):
+    if soup.find('head').has_attr('title'):
         metaData.title = soup.find('head').find('title').contents
-    if (soup.find('head').has_attr('meta', {'property':'og:title'}))
+    if soup.find('head').has_attr('meta', {'property':'og:title'}):
         metaData.OGtitle = soup.find('head').find('meta', {'property':'og:title'}).contents
     return metaData
 
@@ -34,10 +35,13 @@ def BuildSpeciesList(urlList):
     return dataList
 
 # begin here
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['POST', 'GET'])
 def urlList():
     rawList = request.args.get('id')
+    return 0;
 
+
+app.run()
 
 #with open("../Data/json.txt") as f:
 #    data = json.loads(f)

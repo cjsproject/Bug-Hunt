@@ -1,7 +1,7 @@
 function handleQuery()
 {
 	//make sure to set this to the input you're using
-	var imagePath = document.getElementById('').value;
+	var imagePath = document.getElementById('trash').value;
 
 	if (imagePath.length === 0)
 	{
@@ -10,24 +10,23 @@ function handleQuery()
 		return;
 	}
 
-	while (responseDiv.childElementCount > 0)
-	{
-		responseDiv.removeChild(responseDiv.lastChild);
-	}
+	sendRequest(imagePath)
 
-	var f = document.getElementById('uploadImage').files[0];
-	sendRequest(f);
+	//var f = document.getElementById('uploadImage').files[0];
+	//sendRequest(f);
 }
 
 // Format the request and send it.
 function sendRequest(file)
 {
-	var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch?mkt=${market}&safesearch=${safeSearch}';
+	let market = "en-US"
+	let safeSearch = "off";
+	let baseUri = `https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch?mkt=${market}&safesearch=${safeSearch}`;
 
-	var form = new FormData();
+	let form = new FormData();
 	form.append("image", file);
 
-	var request = new XMLHttpRequest();
+	let request = new XMLHttpRequest();
 
 	request.open("POST", baseUri);
 	request.setRequestHeader('Ocp-Apim-Subscription-Key', '1131d8f4da4641ff930b9a7d4788c570');
@@ -89,7 +88,7 @@ function helper(tag, json)
 	{
 		var action = parsedJson.actions[j];
 
-        if (action.actionType === 'RelatedSearches')
+    if (action.actionType === 'RelatedSearches')
 		{
 			addRelatedImagesSites(action.data.value);
 		}
@@ -108,7 +107,7 @@ function addRelatedImagesSites(json)
 	}
 
 	var request = $.ajax({
-	  url: "inspectinsect.net", //this is the server address
+	  url: "localhost:5000", //this is the server address
 	  method: "POST",
 	  data: { 'id' : links },
 	  dataType: "application/json"
